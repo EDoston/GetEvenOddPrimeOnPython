@@ -2,7 +2,6 @@ import math
 import os
 from openpyxl import Workbook
 
-
 with open("list_of_random_numbers.txt", 'r') as txt:
     for line in txt:
         data = line.split(', ')
@@ -17,7 +16,6 @@ def find_prime_numbers(n):
     for x in randomNumbers:
         if is_prime(x):
             prime.append(x)
-
 
 def is_prime(n):
     if n == 1:
@@ -37,7 +35,6 @@ odd = [o for o in odd if o not in prime]
 if os.path.exists('Result.xlsx'):
     os.remove('Result.xlsx')
 
-
 wb = Workbook();
 ws = wb.active
 
@@ -49,7 +46,6 @@ def write_even(work_sheet, even):
     for e in even:
         i += 1
         work_sheet.cell(row = i, column = 1).value = e
-
 
 def write_odd(work_sheet, odd):
     work_sheet.cell(row = 1, column = 2).value = 'Odd numbers'
@@ -74,7 +70,3 @@ write_odd(ws, odd)
 write_prime(ws, prime)
 
 wb.save('Result.xlsx');
-
-
-    
-
